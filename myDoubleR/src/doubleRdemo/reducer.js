@@ -10,9 +10,9 @@ const toDoForChange = (state, action) => {
 
     switch (action.type) {
       case 'CHANGE_COLOR':
-        return { state, themeColor: action.themeColor}
+        return { state, themeColor: action.themeColor ,pageContent: action.pageContent }
       case 'CHANGE_CONTENT':
-        return { state, pageContent: action.pageContent }
+        return { state, themeColor: action.themeColor ,pageContent: action.pageContent }
       case 'CHANGE_CONTENT_COLOR':
         return { state, themeColor: action.themeColor ,pageContent: action.pageContent }
       default:

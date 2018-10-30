@@ -4,9 +4,9 @@ import { changeColor, changeContentWithColor} from './actions'
 
 class ThemeSwitch extends Component {
 
-  handleSwitch (color, content) {
+  handleSwitch (obj) {
     if (this.props.onSwitchColorBtn) {
-      this.props.onSwitchColorBtn(color, content)
+      this.props.onSwitchColorBtn(obj)
     }
   }
 
@@ -15,10 +15,10 @@ class ThemeSwitch extends Component {
       <div>
         <button
           style={{ color: this.props.themeColor }}
-          onClick={this.handleSwitch.bind(this, 'red','this red')}>Red</button>
+          onClick={this.handleSwitch.bind(this, {color:'red'})}>Red</button>
         <button
           style={{ color: this.props.themeColor }}
-          onClick={this.handleSwitch.bind(this, 'blue','this blue')}>Blue</button>
+          onClick={this.handleSwitch.bind(this, {color:'blue'})}>Blue</button>
       </div>
     )
   }
@@ -36,8 +36,8 @@ const mapStateToProps = (state) => {
 // 返回一个函数
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSwitchColorBtn: (color, content) => {
-      dispatch(changeContentWithColor(color, content)) //dispatch(action) 方法更新 state；{ type: 'CHANGE_COLOR', themeColor: color }是一个action，可以独立起来写到一个action.js文件当中
+    onSwitchColorBtn: (obj) => {
+      dispatch(changeColor(obj.color)) //dispatch(action) 方法更新 state；{ type: 'CHANGE_COLOR', themeColor: color }是一个action，可以独立起来写到一个action.js文件当中
     }
   }
 }
@@ -48,4 +48,9 @@ ThemeSwitch = connect(mapStateToProps, mapDispatchToProps)(ThemeSwitch)
 
 export default ThemeSwitch
 
-// {themeColor:'red',pageContent:'this red!'}
+// <button
+        //   style={{ color: this.props.themeColor }}
+        //   onClick={this.handleSwitch.bind(this, {color:'red',content:'this red'})}>Red</button>
+        // <button
+        //   style={{ color: this.props.themeColor }}
+        //   onClick={this.handleSwitch.bind(this, {color:'blue',content:'this blue'})}>Blue</button>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 class Content extends Component {
-  
+
   render () {
     var content = this.props.pageContent
     return (

@@ -8,11 +8,11 @@ export const pageContentWithColor = {
 }
 
 export function changeContent(content) {
-  return { type: CHANGE_CONTENT, pageContent: content }
+  return { type: CHANGE_CONTENT,themeColor: pageContentWithColor.themeColor, pageContent: content }
 }
 
 export function changeColor(color) {
-  return { type: CHANGE_COLOR, themeColor: color }
+  return { type: CHANGE_COLOR, themeColor: color ,pageContent: pageContentWithColor.pageContent}
 }
 
 export function changeContentWithColor(color, content) {
