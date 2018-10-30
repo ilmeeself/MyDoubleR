@@ -1,22 +1,31 @@
-import React, { Component } from 'react';
+import 'babel-polyfill';
+import 'bootstrap/dist/css/bootstrap.css';
+import React from 'react';
+import { render } from 'react-dom';
+import BtnOne from './btnOne';
+import BtnTwo from './btnTwo';
 
-export default class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            count: 1,
-        }
-    }
-
-    add () {
-        this.setState({ count: this.state.count + 1 });
-    };
+// 定义一个组件
+class App extends React.Component {
     render() {
         return (
-            <div>
-                <h1>{this.state.count}</h1>
-                <button onClick={() => this.add()}>增加1</button>
+            <div id="RootPage">
+               <div>
+                  <BtnOne />
+                  <BtnTwo />
+               </div> 
             </div>
         );
     }
 }
+
+export default App
+
+// {this.state.isShowBtnOne &&
+//  <BtnOne isShow = {this.state.isShowBtnOne}
+//          onChangeStateBtnOne = {this.onChangeStateBtnOne.bind(this)}
+//          onChangeStateBtnTwo = {this.onChangeStateBtnTwo.bind(this)}/>}
+// {this.state.isShowBtnTwo &&
+//  <BtnTwo isShow = {this.state.isShowBtnTwo}
+//          onChangeStateBtnOne = {this.onChangeStateBtnOne.bind(this)}
+//          onChangeStateBtnTwo = {this.onChangeStateBtnTwo.bind(this)}/>}

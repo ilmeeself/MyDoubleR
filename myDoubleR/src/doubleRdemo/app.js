@@ -6,7 +6,7 @@ import Header from './Header'
 import Content from './Content'
 import ThemeSwitch from './ThemeSwitch'
 
-class Appp extends Component {
+class AppDouble extends Component {
 
   render () {
     return (
@@ -18,4 +18,4 @@ class Appp extends Component {
     )
   }
 }
-export default Appp
+export default AppDouble

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { changeColor, changeContentWithColor} from './actions'
+import { changeColor, changeContent, changeContentWithColor} from './actions'
 
 class ThemeSwitch extends Component {
 
@@ -15,10 +15,12 @@ class ThemeSwitch extends Component {
       <div>
         <button
           style={{ color: this.props.themeColor }}
-          onClick={this.handleSwitch.bind(this, {color:'red'})}>Red</button>
+          onClick={this.handleSwitch.bind(this, {content:'this red'})}>Red</button>
+          <div>
+          </div>
         <button
           style={{ color: this.props.themeColor }}
-          onClick={this.handleSwitch.bind(this, {color:'blue'})}>Blue</button>
+          onClick={this.handleSwitch.bind(this, {content:'this blue'})}>Blue</button>
       </div>
     )
   }
@@ -37,7 +39,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onSwitchColorBtn: (obj) => {
-      dispatch(changeColor(obj.color)) //dispatch(action) 方法更新 state；{ type: 'CHANGE_COLOR', themeColor: color }是一个action，可以独立起来写到一个action.js文件当中
+      dispatch(changeContent(obj.content)) //dispatch(action) 方法更新 state；{ type: 'CHANGE_COLOR', themeColor: color }是一个action，可以独立起来写到一个action.js文件当中
     }
   }
 }

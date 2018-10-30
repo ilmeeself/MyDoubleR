@@ -4,7 +4,7 @@ export const CHANGE_CONTENT_COLOR = 'CHANGE_CONTENT_COLOR'
 
 export const pageContentWithColor = {
   	themeColor: '',
-	pageContent: 'content'
+	pageContent: 'content_text'
 }
 
 export function changeContent(content) {
@@ -13,6 +13,7 @@ export function changeContent(content) {
 
 export function changeColor(color) {
   return { type: CHANGE_COLOR, themeColor: color ,pageContent: pageContentWithColor.pageContent}
+  
 }
 
 export function changeContentWithColor(color, content) {
