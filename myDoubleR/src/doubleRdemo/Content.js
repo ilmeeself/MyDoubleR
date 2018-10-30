@@ -3,11 +3,12 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 class Content extends Component {
-
+  
   render () {
+    var content = this.props.pageContent
     return (
       <div>
-        <p style={{ color: this.props.themeColor }}>this is content</p>
+        <p style={{ color: this.props.themeColor }}>{ content }</p>
       </div>
     )
   }
@@ -15,7 +16,8 @@ class Content extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    themeColor: state.themeColor
+    themeColor: state.themeColor,
+    pageContent: state.pageContent
   }
 }
 Content = connect(mapStateToProps)(Content)

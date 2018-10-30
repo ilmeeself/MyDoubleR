@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { changeColor, changeContentWithColor} from './actions'
 
 class ThemeSwitch extends Component {
 
-  handleSwitchColor (color) {
-    if (this.props.onSwitchColor) {
-      this.props.onSwitchColor(color)
+  handleSwitch (color, content) {
+    if (this.props.onSwitchColorBtn) {
+      this.props.onSwitchColorBtn(color, content)
     }
   }
 
@@ -15,28 +15,37 @@ class ThemeSwitch extends Component {
       <div>
         <button
           style={{ color: this.props.themeColor }}
-          onClick={this.handleSwitchColor.bind(this, 'red')}>Red</button>
+          onClick={this.handleSwitch.bind(this, 'red','this red')}>Red</button>
         <button
           style={{ color: this.props.themeColor }}
-          onClick={this.handleSwitchColor.bind(this, 'blue')}>Blue</button>
+          onClick={this.handleSwitch.bind(this, 'blue','this blue')}>Blue</button>
       </div>
     )
   }
 }
 
+// 一个指定如何把当前的store的state映射到展示组件的props中的 函数
+// 返回一个对象
 const mapStateToProps = (state) => {
   return {
     themeColor: state.themeColor
   }
 }
+
+// 一个定义如何分发action的 函数 -- 接收 dispatch() 方法并返回期望注入到展示组件的 props 中的回调方法
+// 返回一个函数
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSwitchColor: (color) => {
-      dispatch({ type: 'CHANGE_COLOR', themeColor: color })
+    onSwitchColorBtn: (color, content) => {
+      dispatch(changeContentWithColor(color, content)) //dispatch(action) 方法更新 state；{ type: 'CHANGE_COLOR', themeColor: color }是一个action，可以独立起来写到一个action.js文件当中
     }
   }
 }
+
+// connect函数接收以上两个函数作为参数，生成容器组件，容器组件可以从 Redux state 树中读取部分数据
+// 下面语句的意思是，调用connect函数，传入指定的state（由mapStateToProps生生成），传入指定的分发action的函数（mapDispatchToProps）
 ThemeSwitch = connect(mapStateToProps, mapDispatchToProps)(ThemeSwitch)
 
 export default ThemeSwitch
 
+// {themeColor:'red',pageContent:'this red!'}

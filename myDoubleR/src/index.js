@@ -8,9 +8,9 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import App from './js/App';
 import Appp from './doubleRdemo/app';
-import themeReducer from './doubleRdemo/reducer';
+import toDoForChange from './doubleRdemo/reducer';
 
-const store = createStore(themeReducer)
+const store = createStore(toDoForChange)
 
 class Roott extends React.Component {
     render() {
