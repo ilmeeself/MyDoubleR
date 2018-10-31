@@ -1,4 +1,3 @@
-// import { combineReducers } from 'redux'
 import { pageContentWithColor } from './actions'
 
 const toDoForChange = (state, action) => {
