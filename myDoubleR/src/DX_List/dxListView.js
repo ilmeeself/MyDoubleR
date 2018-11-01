@@ -32,23 +32,38 @@ class ListTabView extends Component{
 // 展示部分
 class ListShowView extends Component{
     render() {
+        var arr = callBackDataCount()
+        var list = []
+        for(var i = 0;i < arr.length;i++){
+            var item = arr[i]
+            if (item === 'i am mainCard') {
+                list.push(<ListShowMainCard decs={item}/>)
+            }else if (item === 'i am commonCard'){
+                list.push(<ListShowCommonCard decs={item}/>)
+            } 
+        }
         return (
         	<div id = "listShowView">
-	        	<ListShowMainCard />
-	        	<ListShowCommonCard />
+	        	{list}
         	</div>
         );
     }
 }
 
+function callBackDataCount(){
+    return ['i am mainCard', 'i am commonCard', 'i am commonCard', 'i am commonCard', 'i am commonCard', 'i am commonCard'];
+}
 
 /*
   ListShowView内部卡片--mainCard
 */
 class ListShowMainCard extends Component{
+    constructor (props) {
+        super(props)
+    }
     render() {
         return (
-        	<div id = "listShowMainCard">i am mainCard</div>
+        	<div id = "listShowMainCard">{this.props.decs}</div>
         )
     }
 }
@@ -58,9 +73,12 @@ class ListShowMainCard extends Component{
   ListShowView内部卡片--commonCard
 */
 class ListShowCommonCard extends Component{
+    constructor (props) {
+        super(props)
+    }    
     render() {
         return (
-        	<div id = "listShowCommonCard">i am commonCard</div>
+        	<div id = "listShowCommonCard">{this.props.decs}</div>
         )
     }
 }
