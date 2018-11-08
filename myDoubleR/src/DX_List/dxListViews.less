@@ -1,37 +1,121 @@
+@screen_width: 200px;
+
 #listRootView {
+    overflow-y: hidden;
     width: 100%;
     height: 100%;
     margin: auto;
-    background-color: orange;
+    background-color: #F0F0F0;
 }
 
+
 #listTabView {
+    position: fixed;
+    box-shadow: 0px 2px 2px #D0D0D0;
     width: 100%;
     height: 44px;
     margin: 0px;
-    background-color: yellow;
+    background-color: white;
+
+    #listTabView_Section_Selected {
+        float: left;
+        margin-top: 10px;
+        width: 33.3%;
+        text-align: center;
+        color: red;
+    }
+    
+    #listTabView_Section_NotSelected {
+        float: left;
+        margin-top: 10px;
+        width: 33.3%;
+        text-align: center;
+    }
 }
 
-#listShowView {
-	width: 100%;
+    #listShowViewOne {
+        overflow: scroll;
+    	width: 100%;
+        height: 100%;
+        margin-top: 49px;
+        padding: 10px;
+        background-color: #F0F0F0;
+
+        #listShowMainCard {
+        border-radius: 15px;
+        box-shadow: 0 0 5px #686868;
+        width: 100%;
+        height: 110px;
+        margin: 0px 0px 15px 0px;
+        background-color: white;
+
+        #listShowMainCard_Pic {
+            float: left;
+            width: 90px;
+            height: 90px;
+            margin: 10px;
+            background-color: #E0E0E0;
+        }
+        
+        #listShowMainCard_Title {
+            float: left;
+            margin-top: 10px;
+            max-width: calc(~"100% - 120px");//calc() 函数用于动态计算长度值。表示最大宽度为(屏幕宽度100%-120px)
+            height: auto;
+
+            font-size: 14px;
+            text-align: left;
+            display: inline-block;
+            overflow: hidden;
+            cursor: pointer;
+            display: -webkit-box;
+            word-wrap: break-word;
+            text-overflow: ellipsis;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;//限制2行
+        }
+    }
+
+    #listShowCommonCard {
+        border-radius: 15px;
+        box-shadow: 0 0 5px #686868;
+        width: 100%;
+        height: 110px;
+        margin: 0px 0px 15px 0px;
+        background-color: white;
+
+        #listShowCommonCard_Pic {
+            float: left;
+            width: 90px;
+            height: 90px;
+            margin: 10px;
+            background-color: #E0E0E0;
+        }
+
+        #listShowCommonCard_Title {
+            float: left;
+            margin-top: 10px;
+        }
+    }
+}
+
+
+
+
+#listShowViewTwo {
+    overflow: scroll;
+    width: 100%;
     height: 100%;
-    margin: 0px;
+    margin-top: 49px;
     padding: 10px;
-    background-color: pink;
+    background-color: green;
 }
 
-
-#listShowMainCard {
+#listShowViewThree {
+    overflow: scroll;
     width: 100%;
-    height: 110px;
-    margin: 0px 0px 10px 0px;
-    background-color: white;
+    height: 100%;
+    margin-top: 49px;
+    padding: 10px;
+    background-color: blue;
 }
-
-#listShowCommonCard {
-    width: 100%;
-    height: 110px;
-    margin: 0px 0px 10px 0px;
-    background-color: white;
-}
-

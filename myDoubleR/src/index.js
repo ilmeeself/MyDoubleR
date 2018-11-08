@@ -11,15 +11,17 @@ import toDoForChange from './doubleRdemo/reducer';
 import App from './js/App';
 import btnReducer from './js/redux_test/clickBtnReducer'
 import todoApp from './indexReducer';
+
+import clickForChange from './DX_List/dxListReducer';
 import ListRootView from './DX_List/dxListView';
 
-
+const store = createStore(clickForChange)
 class Root extends React.Component {
     render() {
         return (
-          <div>
-            <ListRootView />
-          </div>
+        	<Provider store={store}>
+        		<ListRootView />
+        	</Provider>
         );
     }
 }
